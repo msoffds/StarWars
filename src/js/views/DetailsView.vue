@@ -3,7 +3,7 @@
     <div class="title">
       <h4>{{pageName}}</h4>
       <hr>
-      <h1>{{data.title}}</h1>
+      <h1>{{getPageHeadder(data)}}</h1>
       <div v-if="route == 'FilmId'">
         <h4>Episode {{convertToRoman(data.episode_id)}}</h4>
       </div>
@@ -18,10 +18,10 @@
             <film-details :data="data"></film-details>
           </div>
           <div v-if="route == 'CharacterId'">
-            Character
+            <character-details :data="data"></character-details>
           </div>
           <div v-if="route == 'PlanetId'">
-            Planets
+            <planet-details :data="data"></planet-details>
           </div>
 
         </div>
@@ -39,13 +39,18 @@
 <script>
   import axios from 'axios'
   import FilmDetails from '../components/FilmDetails.vue'
+  import CharacterDetails from '../components/CharacterDetails.vue'
+  import PlanetDetails from '../components/PlanetDetails.vue'
+
   import AppFooter from '../components/AppFooter.vue';
 
 
   export default {
     components: {
       AppFooter,
-      FilmDetails
+      FilmDetails,
+      CharacterDetails,
+      PlanetDetails
     },
     name: 'details-view',
     data () {
@@ -73,6 +78,18 @@
           console.log('-----error-------')
           console.log(error)
         })
+      },
+      getPageHeadder(data){
+        switch (this.route) {
+          case 'FilmId':
+            return data.title;
+            break
+          case 'CharacterId':
+          case 'PlanetId':
+            return data.name;
+            break
+          default:
+        }
       },
       convertToRoman (number) {
         var romanMatrix = [

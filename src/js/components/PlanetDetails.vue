@@ -23,7 +23,7 @@
             </div>
 
             <div class="left-cell-small-padding">
-              <div v-if="data.residents != undefined">
+              <div v-if="data.residents != undefined ">
                 <div class="home-planet-tag home-planet-tag-small"><b>Heimatplanet: </b></div>
                 <div v-for="item in characterList" class="home-planet-tag">
                   <router-link :to="{ name: 'CharacterId', params: { id: getItemId(item) }}">
@@ -127,10 +127,10 @@
     data: function () {
       return {
         filmsList: {
-          type: Array
+          type: Array,
         },
         characterList: {
-          type: Array
+          type: Array,
         },
         endpointList: {
           films: 'https://swapi.dev/api/films/',
@@ -153,6 +153,9 @@
             this.getAllFilms()
         }
       },
+      characterList:function(){
+        console.log(this.characterList)
+      }
 
     },
     methods: {
@@ -197,7 +200,8 @@
 
     },
     created () {
-
+      this.filmsList = [];
+      this.characterList = [];
     },
     updated: function () {
       this.$nextTick(function () {
@@ -241,7 +245,7 @@
   }
 
   .left-cell-small-padding {
-    text-align: justify;
+    text-align: left;
     padding-right: 50px;
   }
 

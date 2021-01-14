@@ -2,12 +2,15 @@
   <div id="app">
     <app-toolbar></app-toolbar>
     <router-view></router-view>
+
   </div>
 </template>
 
 <script>
   import AppToolbar from '../js/components/AppToolbar.vue';
-export default {
+
+
+  export default {
   name: 'app',
   components:{
     AppToolbar
@@ -17,7 +20,8 @@ export default {
 
 <style>
   body{
-    --toolbar-height: 133px;
+    --toolbar-height-medium: 133px;
+    --toolbar-height-small: 64px;
   }
 </style>
 

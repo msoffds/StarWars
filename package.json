@@ -13,7 +13,9 @@
     "build": "gulp sass"
   },
   "dependencies": {
+    "jquery": "^3.5.1",
     "vue": "^2.4.2",
+    "vue-equalizer": "^1.0.7",
     "vue-router": "^2.7.0"
   },
   "devDependencies": {

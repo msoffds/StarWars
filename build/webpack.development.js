@@ -7,6 +7,9 @@ const webpackConfig = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
+    host: '192.168.1.3',//your ip address
+    port: 8080,
+    disableHostCheck: true,
   },
   performance: {
     hints: false,

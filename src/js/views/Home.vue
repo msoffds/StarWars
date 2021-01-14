@@ -10,11 +10,6 @@
       </div>
       <div class="cell small-2"></div>
     </div>
-
-
-
-    <!--<h1>{{ msg }}</h1>-->
-
   </div>
 </template>
 
@@ -31,14 +26,28 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .home {
-    background: #10172C;
-    height: calc(100vh - var(--toolbar-height));
+  @media screen and (max-width: 39.9375em) {
+    .home {
+      background: #10172C;
+      height: calc(100vh - var(--toolbar-height-small));
+    }
+
+    .grid-y{
+      height: calc(100vh - var(--toolbar-height-small));
+    }
+  }
+  @media screen and (min-width: 40em) {
+    .home {
+      background: #10172C;
+      height: calc(100vh - var(--toolbar-height-medium));
+    }
+
+    .grid-y{
+      height: calc(100vh - var(--toolbar-height-medium));
+    }
   }
 
-  .grid-y{
-    height: calc(100vh - var(--toolbar-height));
-  }
+
 
   .parent{
     position: relative;
